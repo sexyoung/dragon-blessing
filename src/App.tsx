@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-const getRandomInt = () => ~~(Math.random() * 10);
+const getRandomInt = () => ~~(Math.random() * 6);
 
 function getOrCreateCardCookie() {
   let card = document.cookie.split("; ").find((row) => row.startsWith("card="));
@@ -19,7 +19,14 @@ function App() {
   useEffect(() => {
     setCard(getOrCreateCardCookie());
   }, []);
-  return <div>隨機圖圖 {card}</div>;
+  if (card === undefined) return null;
+  return (
+    <img
+      className="card"
+      src={`/dragon-blessing-${card}.png`}
+      alt="dragon blessing"
+    />
+  );
 }
 
 export default App;
