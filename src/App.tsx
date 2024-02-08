@@ -21,10 +21,9 @@ function App() {
   }, []);
   if (card === undefined) return null;
   return (
-    <img
+    <div
+      style={{ backgroundImage: `url(/dragon-blessing-${card}.png)` }}
       className="card"
-      src={`/dragon-blessing-${card}.png`}
-      alt="dragon blessing"
     />
   );
 }
